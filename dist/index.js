@@ -9661,6 +9661,7 @@ exports.prepareVersions = function prepareVersions(marketingVersion, buildNumber
     const techVersion = storeTechVersion + "-" + gitShort
 
     return {
+        marketingVersion: marketingVersion,
         buildNumber: buildNumber,
         buildNumberString: buildNumberString,
         storeTechVersion: storeTechVersion,
@@ -9875,6 +9876,7 @@ try {
   const res = utils.prepareVersions(marketingVersion, buildNumberSeparator, runNumberBase, runNumber, gitSha)
   console.log('Generated: ' + JSON.stringify(res, undefined, 2));
   
+  core.setOutput("marketing-version", res.marketingVersion);
   core.setOutput("build-number", res.buildNumber);
   core.setOutput("git-short", res.gitShort);
   core.setOutput("store-tech-version", res.storeTechVersion);

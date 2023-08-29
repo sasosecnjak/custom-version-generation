@@ -14,6 +14,8 @@ inputs:
     required: false
     default: '.'
 outputs:
+  marketing-version:
+    description: 'Is the [marketing-version]'
   build-number:
     description: 'Is the [run-number-base] + [github.run_number]'
   git-short:

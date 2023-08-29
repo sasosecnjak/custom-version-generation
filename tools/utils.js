@@ -25,6 +25,7 @@ exports.prepareVersions = function prepareVersions(marketingVersion, buildNumber
     const techVersion = storeTechVersion + "-" + gitShort
 
     return {
+        marketingVersion: marketingVersion,
         buildNumber: buildNumber,
         buildNumberString: buildNumberString,
         storeTechVersion: storeTechVersion,
