@@ -1,0 +1,27 @@
+name: 'Custom version String Generator'
+description: 'It generates a custom string, used for versioning.'
+inputs:
+  marketing-version:  # Marketing version
+    description: 'Marketing version, like 1.0.0'
+    required: true
+    default: '0.0.0'
+  run-number-base:  # Base which is added to the `github.run_number`
+    description: 'Base which is added to the `github.run_number`'
+    required: false
+    default: '0'
+  build-number-separator:
+    description: 'Separator used when build number is added to the `marketing-version`'
+    required: false
+    default: '.'
+outputs:
+  build-number:
+    description: 'Is the [run-number-base] + [github.run_number]'
+  git-short:
+    description: 'GITHUB_SHA shortened to 7 characters'
+  store-tech-version:
+    description: 'String combining [marketing-version].[build-number]'
+  tech-version:
+    description: 'String combining [store-tech-version].[git-short]'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
