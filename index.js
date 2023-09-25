@@ -6,7 +6,7 @@ try {
   // Get Inputs
   const marketingVersion = core.getInput('marketing-version') || '';
   const runNumberBase = Number(core.getInput('run-number-base')) || 0;
-  const buildNumberSeparator = Number(core.getInput('build-number-separator')) || '.';
+  const buildNumberSeparator = core.getInput('build-number-separator') || '.';
 
   // Get Context Varibales
   const runNumber = github.context.runNumber;
@@ -16,6 +16,7 @@ try {
   console.log(`*`)
   console.log(`* Marketing version: ${marketingVersion}`);
   console.log(`* Run number base: ${runNumberBase}`);
+  console.log(`* Build number separator: ${buildNumberSeparator}`);
   console.log(`* Run number: ${runNumber}`);
   console.log(`* Git SHA: ${gitSha}`);
   console.log(`*`)
