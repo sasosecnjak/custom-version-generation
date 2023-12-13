@@ -13,6 +13,10 @@ inputs:
     description: 'Separator used when build number is added to the `marketing-version`'
     required: false
     default: '.'
+  version-postfix:
+    description: 'Postfix string added at the end of the `tech-version`'
+    required: false
+    default: ''
 outputs:
   marketing-version:
     description: 'Is the [marketing-version]'
@@ -23,7 +27,7 @@ outputs:
   store-tech-version:
     description: 'String combining [marketing-version].[build-number]'
   tech-version:
-    description: 'String combining [store-tech-version].[git-short]'
+    description: 'String combining [store-tech-version].[git-short][version-postfix]'
 runs:
   using: 'node16'
   main: 'dist/index.js'

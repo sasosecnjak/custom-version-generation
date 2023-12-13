@@ -7,6 +7,7 @@ try {
   const marketingVersion = core.getInput('marketing-version') || '';
   const runNumberBase = Number(core.getInput('run-number-base')) || 0;
   const buildNumberSeparator = core.getInput('build-number-separator') || '.';
+  const versionPostfix = core.getInput('version-postfix') || '';
 
   // Get Context Varibales
   const runNumber = github.context.runNumber;
@@ -17,13 +18,14 @@ try {
   console.log(`* Marketing version: ${marketingVersion}`);
   console.log(`* Run number base: ${runNumberBase}`);
   console.log(`* Build number separator: ${buildNumberSeparator}`);
+  console.log(`* Version postfix: ${versionPostfix}`);
   console.log(`* Run number: ${runNumber}`);
   console.log(`* Git SHA: ${gitSha}`);
   console.log(`*`)
   console.log(`************************************************`)
 
   // Generate version strings
-  const res = utils.prepareVersions(marketingVersion, buildNumberSeparator, runNumberBase, runNumber, gitSha)
+  const res = utils.prepareVersions(marketingVersion, buildNumberSeparator, versionPostfix, runNumberBase, runNumber, gitSha)
   console.log('Generated: ' + JSON.stringify(res, undefined, 2));
   
   core.setOutput("marketing-version", res.marketingVersion);

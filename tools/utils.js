@@ -4,12 +4,13 @@
  * Function to prepare version strings based on the given parameters
  * @param {string} marketingVersion 
  * @param {string} buildNumberSeparator 
+ * @param {string} versionPostfix 
  * @param {number} runNumberBase 
  * @param {number} runNumber 
  * @param {string} gitSha 
  * @returns Object with the custom version strings
  */
-exports.prepareVersions = function prepareVersions(marketingVersion, buildNumberSeparator, runNumberBase, runNumber, gitSha) {
+exports.prepareVersions = function prepareVersions(marketingVersion, buildNumberSeparator, versionPostfix, runNumberBase, runNumber, gitSha) {
     // Preconditions check
     if (marketingVersion.length < 1) { throw new Error('Marketing version is empty') }
     if (buildNumberSeparator.length < 1) { throw new Error('Build number separator is empty') }
@@ -22,7 +23,7 @@ exports.prepareVersions = function prepareVersions(marketingVersion, buildNumber
     const buildNumberString = buildNumber.toString();
     const storeTechVersion = marketingVersion + buildNumberSeparator + buildNumberString
     const gitShort = gitSha.slice(0,7) || ""
-    const techVersion = storeTechVersion + "-" + gitShort
+    const techVersion = storeTechVersion + "-" + gitShort + versionPostfix
 
     return {
         marketingVersion: marketingVersion,
