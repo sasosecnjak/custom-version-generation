@@ -35,6 +35,10 @@ Example
 
 **Optional** Separator used when build number is added to the `marketing-version`
 
+### `version-postfix`
+
+**Optional** Postfix string added at the end of the `tech-version`
+
 ## Outputs
 
 ### `build-number`
@@ -51,4 +55,4 @@ Results in "`marketing-version``build-number-separator``build-number`"
 
 ### `tech-version`
 
-Results in "`store-tech-version`-`git-short`"
+Results in "`store-tech-version`-`git-short``version-postfix`"
