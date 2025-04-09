@@ -13,6 +13,10 @@ inputs:
     description: 'Separator used when build number is added to the `marketing-version`'
     required: false
     default: '.'
+  sha:
+    description: 'String added at the end of the `tech-version` and before `version-postfix`'
+    required: true
+    default: ''
   version-postfix:
     description: 'Postfix string added at the end of the `tech-version`'
     required: false

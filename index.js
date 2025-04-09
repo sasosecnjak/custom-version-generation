@@ -8,10 +8,10 @@ try {
   const runNumberBase = Number(core.getInput('run-number-base')) || 0;
   const buildNumberSeparator = core.getInput('build-number-separator') || '.';
   const versionPostfix = core.getInput('version-postfix') || '';
+  const gitSha = core.getInput('sha') || '';
 
   // Get Context Varibales
   const runNumber = github.context.runNumber;
-  const gitSha = github.context.sha
 
   console.log(`******************** Inputs ********************`)
   console.log(`*`)
