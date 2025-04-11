@@ -18,12 +18,15 @@ exports.prepareVersions = function prepareVersions(marketingVersion, buildNumber
     if (runNumber < 0) { throw new Error('Run number needs to be greater or equal to 0, but it is ' + runNumber) }
     if (gitSha.length < 7) { throw new Error('Git SHA too short') }
 
+    // Sanitize versionPostfix
+    const sanitizedVersionPostfix = versionPostfix.replace(/\//g, '-');
+
     // Construct strings
     const buildNumber = runNumberBase + runNumber;
     const buildNumberString = buildNumber.toString();
     const storeTechVersion = marketingVersion + buildNumberSeparator + buildNumberString
     const gitShort = gitSha.slice(0,7) || ""
-    const techVersion = storeTechVersion + "-" + gitShort + versionPostfix
+    const techVersion = storeTechVersion + "-" + gitShort + sanitizedVersionPostfix
 
     return {
         marketingVersion: marketingVersion,
