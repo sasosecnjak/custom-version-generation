@@ -14,6 +14,7 @@ scenario10()
 scenario11()
 scenario12()
 scenario13()
+scenario14()
 
 function scenario1() {
     console.log("Scneario 1")
@@ -151,6 +152,17 @@ function scenario13() {
     console.log("Scneario 13")
     try {
         const res = utils.prepareVersions("3.1.5", ".", "-feature/TICKET-1234-some-feature", 0, 156, "abf331fa549e")
+        console.log(res)
+    } catch (error) {
+        console.log(error)
+    }
+    console.log("")
+}
+
+function scenario14() {
+    console.log("Scneario 14")
+    try {
+        const res = utils.prepareVersions("3.1.5", ".", "-feature/TICKET-1234-some_feature_with_longer_underscored_title", 0, 156, "abf331fa549e")
         console.log(res)
     } catch (error) {
         console.log(error)

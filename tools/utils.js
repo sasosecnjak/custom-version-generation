@@ -19,7 +19,9 @@ exports.prepareVersions = function prepareVersions(marketingVersion, buildNumber
     if (gitSha.length < 7) { throw new Error('Git SHA too short') }
 
     // Sanitize versionPostfix
-    const sanitizedVersionPostfix = versionPostfix.replace(/\//g, '-');
+    const sanitizedVersionPostfix = versionPostfix
+                                        .replace(/\//g, '-')
+                                        .replace(/_/g, '-');
 
     // Construct strings
     const buildNumber = runNumberBase + runNumber;
