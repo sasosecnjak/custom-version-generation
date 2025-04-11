@@ -29,6 +29,7 @@ exports.prepareVersions = function prepareVersions(marketingVersion, buildNumber
     const storeTechVersion = marketingVersion + buildNumberSeparator + buildNumberString
     const gitShort = gitSha.slice(0,7) || ""
     const techVersion = storeTechVersion + "-" + gitShort + sanitizedVersionPostfix
+    const versionVariation = gitShort + sanitizedVersionPostfix
 
     return {
         marketingVersion: marketingVersion,
@@ -36,6 +37,7 @@ exports.prepareVersions = function prepareVersions(marketingVersion, buildNumber
         buildNumberString: buildNumberString,
         storeTechVersion: storeTechVersion,
         gitShort: gitShort,
-        techVersion: techVersion
+        techVersion: techVersion,
+        versionVariation: versionVariation
     }
 }
