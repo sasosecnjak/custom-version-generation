@@ -32,7 +32,7 @@ outputs:
     description: 'String combining [marketing-version].[build-number]'
   tech-version:
     description: 'String combining [store-tech-version].[git-short][version-postfix]'
-  versionVariation:
+  version-variation:
     description: 'String combining [git-short][version-postfix]'
 runs:
   using: 'node16'
