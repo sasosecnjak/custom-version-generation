@@ -8,7 +8,8 @@ It generate object with custom version strings like
   buildNumberString: '122',
   storeTechVersion: '1.0.0.122',
   gitShort: 'abf331f',
-  techVersion: '1.0.0.122-abf331f'
+  techVersion: '1.0.0.122-abf331f',
+  versionVariation: 'abf331f'
 }
 ```
 
@@ -56,3 +57,7 @@ Results in "`marketing-version``build-number-separator``build-number`"
 ### `tech-version`
 
 Results in "`store-tech-version`-`git-short``version-postfix`"
+
+### `version-variation`
+
+Results in "`git-short``version-postfix`"

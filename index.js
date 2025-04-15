@@ -33,6 +33,7 @@ try {
   core.setOutput("git-short", res.gitShort);
   core.setOutput("store-tech-version", res.storeTechVersion);
   core.setOutput("tech-version", res.techVersion);
+  core.setOutput("version-variation", res.versionVariation);
   
 } catch (error) {
   core.setFailed(error.message);
